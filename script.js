@@ -5,15 +5,6 @@ var $ = function(sel) {
     return document.querySelector(sel);
 };
 
-function hexToRgb(hex) {
-    var result = /^0x?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
-}
-
 var change = function() {
     var files = $("#filechooser").files;
     if (files.length == 0) return;
@@ -63,8 +54,6 @@ function genPic(img_url) {
             0, 0, c.width, c.height
         );
 
-        var cl = hexToRgb($("#color").value);
-        // console.log(cl, $("#color").value);
         color_orig = $("#color").value;
 
         var x = color_orig.slice(3, color_orig.length - 1);
